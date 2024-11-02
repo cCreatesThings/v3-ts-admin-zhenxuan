@@ -22,6 +22,14 @@ export default defineConfig({
       symbolId: 'icon-[dir]-[name]'
     })
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        javascriptEnabled: true,
+        additionalData: '@import "./src/styles/variable.scss";'
+      }
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

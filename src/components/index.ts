@@ -1,8 +1,8 @@
 //  注册为全局组件的插件
 
-import type { App } from 'vue'
+import type { App, Component } from 'vue'
 import SvgIcon from './SvgIcon.vue'
-const allGlobalComponent = { SvgIcon }
+const allGlobalComponent: Record<string, Component> = { SvgIcon }
 const keys = Object.keys(allGlobalComponent)
 
 export default {

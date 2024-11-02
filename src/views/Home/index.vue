@@ -5,3 +5,9 @@ import SvgIcon from '@/components/SvgIcon.vue'
   <div class="home">我是home</div>
   <SvgIcon name="home" color="red" />
 </template>
+
+<style lang="scss" scoped>
+.home {
+  color: $color-primary;
+}
+</style>
