@@ -28,4 +28,3 @@ defineProps({
     <use :fill="color" :xlink:href="`${prefix}${name}`"></use>
   </svg>
 </template>
-
