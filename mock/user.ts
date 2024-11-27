@@ -11,7 +11,7 @@ function createUserList() {
       roles: ['平台管理员'],
       buttons: ['cuser.detail'],
       routes: ['home'],
-      token: 'Admin Token',
+      token: 'Admin Token'
     },
     {
       userId: 2,
@@ -23,22 +23,22 @@ function createUserList() {
       roles: ['系统管理员'],
       buttons: ['cuser.detail', 'cuser.user'],
       routes: ['home'],
-      token: 'System Token',
-    },
+      token: 'System Token'
+    }
   ]
 }
 
 export default [
   // 用户登录接口
   {
-    url: '/api/user/login',//请求地址
-    method: 'post',//请求方式
+    url: '', //请求地址
+    method: 'post', //请求方式
     response: ({ body }) => {
       //获取请求体携带过来的用户名与密码
-      const { username, password } = body;
+      const { username, password } = body
       //调用获取用户信息函数,用于判断是否有此用户
       const checkUser = createUserList().find(
-        (item) => item.username === username && item.password === password,
+        (item) => item.username === username && item.password === password
       )
       //没有用户返回失败信息
       if (!checkUser) {
@@ -47,7 +47,7 @@ export default [
       //如果有返回成功信息
       const { token } = checkUser
       return { code: 200, data: { token } }
-    },
+    }
   },
   // 获取用户信息
   {
@@ -55,7 +55,7 @@ export default [
     method: 'get',
     response: (request) => {
       //获取请求头携带token
-      const token = request.headers.token;
+      const token = request.headers.token
       //查看用户信息是否包含有次token用户
       const checkUser = createUserList().find((item) => item.token === token)
       //没有返回失败的信息
@@ -64,6 +64,6 @@ export default [
       }
       //如果有返回成功信息
       return { code: 200, data: { checkUser } }
-    },
-  },
+    }
+  }
 ]

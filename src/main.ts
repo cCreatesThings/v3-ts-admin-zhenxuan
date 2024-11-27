@@ -9,6 +9,7 @@ import 'virtual:svg-icons-register'
 // 安装自己的注册全局组件的插件
 import globalComponent from '@/components'
 // 引入全局样式
+
 import '@/styles/index.scss'
 const app = createApp(App)
 

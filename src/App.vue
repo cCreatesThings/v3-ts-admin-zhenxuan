@@ -9,3 +9,4 @@ const lang = shallowRef(zhCn)
     <RouterView />
   </ElConfigProvider>
 </template>
+
