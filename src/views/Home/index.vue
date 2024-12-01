@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import SvgIcon from '@/components/SvgIcon.vue'
-import { getTestRequestAPI } from '@/api/test'
+import { getUserInfoAPI, postLoginRequestAPI } from '@/api/test'
 const getTestRequest = async () => {
-  const res = await getTestRequestAPI()
-  console.log(res)
+  const res = await postLoginRequestAPI({
+    username: 'admin',
+    password: '111111'
+  })
+  console.log(res.data.data.token)
+  const result = await getUserInfoAPI()
+  console.log(result.data.data)
 }
 </script>
 <template>

@@ -38,8 +38,6 @@ export default [
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/semi': 'off',
-
-      'vue/multi-word-component-names': 'off',
       'vue/script-setup-uses-vars': 'warn',
       'vue/no-mutating-props': 'off',
       'vue/attribute-hyphenation': 'off',
