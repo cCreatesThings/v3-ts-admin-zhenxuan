@@ -16,7 +16,7 @@ const getTestRequest = async () => {
 </script>
 <template>
   <div class="home">我是home</div>
-  <SvgIcon name="home" color="red" />
+  <SvgIcon name="lock" color="skyblue" />
   <el-button type="success">click</el-button>
   <el-card header="hello world!!!">李江涛</el-card>
   <el-button @click="getTestRequest">测试请求</el-button>
