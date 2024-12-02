@@ -2,7 +2,8 @@ import request from '@/utils/request'
 import type { commonDataType } from '@/types/common_api'
 import type {
   loginSuccessDataType,
-  loginDataParamsType
+  loginDataParamsType,
+  UserInfoType
 } from '@/types/user/user'
 
 /**
@@ -10,7 +11,9 @@ import type {
  * @param data
  */
 export const postLoginRequestAPI = (data: loginDataParamsType) => {
-  return request<commonDataType<loginSuccessDataType>>({
+  // 第一个泛型参数是请求参数的类型
+  // 第二个泛型参数是返回值的类型
+  return request<loginDataParamsType, commonDataType<loginSuccessDataType>>({
     method: 'POST',
     url: '/user/login',
     data
@@ -21,7 +24,7 @@ export const postLoginRequestAPI = (data: loginDataParamsType) => {
  * 获取用户信息
  */
 export const getUserInfoAPI = () => {
-  return request({
+  return request<never, commonDataType<UserInfoType>>({
     url: '/user/info',
     headers: {
       token: 'Admin Token'

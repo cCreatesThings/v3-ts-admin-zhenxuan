@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-console.log(import.meta.env.VITE_APP_BASE_API)
+import type { AxiosResponse } from 'axios'
 const request = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
   timeout: 10000
@@ -18,8 +17,8 @@ request.interceptors.request.use(
 
 // 响应拦截器
 request.interceptors.response.use(
-  (res) => {
-    return res
+  <T>(res: AxiosResponse<T>): T => {
+    return res.data
   },
   (error) => {
     console.log(error)
