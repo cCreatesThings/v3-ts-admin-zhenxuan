@@ -12,10 +12,14 @@ export default ({ command }: { command: string }) => {
     plugins: [
       vue(),
       AutoImport({
-        resolvers: [ElementPlusResolver()]
+        resolvers: [
+          ElementPlusResolver({
+            importStyle: 'sass'
+          })
+        ]
       }),
       Components({
-        resolvers: [ElementPlusResolver()],
+        resolvers: [ElementPlusResolver({ importStyle: 'sass' })],
         dts: true // 自动生成类型声明文件
       }),
       viteMockServe({
@@ -32,7 +36,7 @@ export default ({ command }: { command: string }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "./src/styles/variable.scss";'
+          additionalData: `@use "@/styles/index.scss" as *;`
         }
       }
     },

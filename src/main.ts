@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
 import App from './App.vue'
 import router from './router'
 // svg图标配置
@@ -10,7 +9,6 @@ import 'virtual:svg-icons-register'
 import globalComponent from '@/components'
 // 引入全局样式
 
-import '@/styles/index.scss'
 const app = createApp(App)
 
 app.use(globalComponent)

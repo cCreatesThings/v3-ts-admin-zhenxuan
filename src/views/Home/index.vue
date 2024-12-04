@@ -19,14 +19,14 @@ const getTestRequest = async () => {
   <SvgIcon name="lock" color="skyblue" />
   <el-button type="success">click</el-button>
   <el-card header="hello world!!!">李江涛</el-card>
-  <el-button @click="getTestRequest">测试请求</el-button>
+  <el-button @click="getTestRequest" type="danger">测试请求</el-button>
   <el-image :src="userinfo.checkUser?.avatar" />
 </template>
 
 <style lang="scss" scoped>
-@use '@/styles/variable.scss' as *; // 使用 * 来导入所有变量
-
-.home {
-  color: $color-primary;
-}
+//@use '@/styles/variable.scss' as *; // 使用 * 来导入所有变量
+//
+//.home {
+//  color: $color-primary;
+//}
 </style>
