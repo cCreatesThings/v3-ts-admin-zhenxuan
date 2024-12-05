@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SvgIcon from '@/components/SvgIcon.vue'
-import { getUserInfoAPI, postLoginRequestAPI } from '@/api/test'
+import { getUserInfoAPI, postLoginRequestAPI } from '@/api/user'
 import { ref } from 'vue'
 import type { UserInfoType } from '@/types/user/user'
 const userinfo = ref<UserInfoType>({} as UserInfoType)
