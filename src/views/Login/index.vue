@@ -3,6 +3,8 @@ import { User, Lock } from '@element-plus/icons-vue'
 import { ref } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
 import { postLoginRequestAPI } from '@/api/user'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const formData = ref({
   username: 'admin',
   password: '111111'
@@ -19,8 +21,12 @@ const clickBtnLogin = () => {
       console.log(res)
       ElMessage({
         type: 'success',
-        message: '登录成功'
+        message: res.message
       })
+      // 1s 之后跳转首页
+      setTimeout(() => {
+        router.replace('/')
+      }, 1000)
     }
   })
 }

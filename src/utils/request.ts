@@ -22,26 +22,20 @@ request.interceptors.request.use(
 request.interceptors.response.use(
   <T>(res: AxiosResponse<T>): T => {
     // 响应状态码判断
-    if (
-      (res.data as { code: number }).code < 200 ||
-      (res.data as { code: number }).code >= 300
-    ) {
+    if (!(res.data as { ok: string }).ok) {
       const response = res.data as {
         code: number
-        data: Record<string, unknown>
+        message: string
       }
-      ElMessage.error(response.data.message || '出现错误')
-      throw new Error(
-        typeof response.data?.message === 'string'
-          ? response.data?.message
-          : 'API response error'
-      )
+      ElMessage.error(response.message || '出现错误')
+      throw new Error(response.message || 'API response error')
     }
+    // 成功响应
     return res.data
   },
-  (error) => {
+  async (error) => {
     if (error.response.status === 401) {
-      router.push('/login')
+      await router.replace('/login')
     }
     return Promise.reject(error)
   }
