@@ -23,11 +23,11 @@ export const postLoginRequestAPI = (data: loginDataParamsType) => {
 /**
  * 获取用户信息
  */
-export const getUserInfoAPI = () => {
+export const getUserInfoAPI = (token: string) => {
   return request<never, commonDataType<UserInfoType>>({
     url: '/user/info',
     headers: {
-      token: 'Admin Token'
+      token
     }
   })
 }

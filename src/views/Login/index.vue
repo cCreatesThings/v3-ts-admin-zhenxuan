@@ -4,6 +4,8 @@ import { ref } from 'vue'
 import { ElForm, ElMessage } from 'element-plus'
 import { postLoginRequestAPI } from '@/api/user'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
+const userStore = useUserStore()
 const router = useRouter()
 const formData = ref({
   username: 'admin',
@@ -15,10 +17,11 @@ const formData = ref({
  */
 const formEl = ref<InstanceType<typeof ElForm> | null>(null)
 const clickBtnLogin = () => {
-  formEl.value?.validate(async (isOK) => {
+  formEl.value!.validate(async (isOK) => {
     if (isOK) {
       const res = await postLoginRequestAPI(formData.value)
-      console.log(res)
+      // 设置pinia中 token
+      userStore.setToken(res.data.token)
       ElMessage({
         type: 'success',
         message: res.message
