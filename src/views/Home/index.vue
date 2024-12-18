@@ -11,10 +11,10 @@ getUserInfo()
 <template>
   <div class="home">我是home</div>
   <SvgIcon name="lock" color="skyblue" />
-  <el-button type="success">click</el-button>
-  <el-card header="hello world!!!">李江涛</el-card>
-  <!--  <el-button @click="getTestRequest" type="danger">测试请求</el-button>-->
-  <el-image :src="userStore.userInfo?.checkUser.avatar" />
+  <el-image
+    :src="userStore.userInfo?.checkUser.avatar"
+    style="width: 50px; height: 50px"
+  />
 </template>
 
 <style lang="scss" scoped>

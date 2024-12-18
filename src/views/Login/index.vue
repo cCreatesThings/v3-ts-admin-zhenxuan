@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { User, Lock } from '@element-plus/icons-vue'
 import { ref } from 'vue'
-import { ElForm, ElMessage } from 'element-plus'
+import { ElForm, ElMessage, type FormRules } from 'element-plus'
 import { postLoginRequestAPI } from '@/api/user'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
@@ -34,9 +34,20 @@ const clickBtnLogin = () => {
   })
 }
 // 校验规则
-const rules = {
-  username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-  password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
+const rules: FormRules = {
+  username: [
+    { required: true, message: '请输入用户名', trigger: 'blur' },
+    { min: 5, max: 10, message: '长度为5-10位', trigger: 'blur' }
+  ],
+  password: [
+    { required: true, message: '请输入密码', trigger: 'blur' },
+    {
+      required: true,
+      pattern: /^[\da-zA-Z]{6,10}$/,
+      message: '只能为字母,数字,下划线长度六位',
+      trigger: 'blur'
+    }
+  ]
 }
 </script>
 
