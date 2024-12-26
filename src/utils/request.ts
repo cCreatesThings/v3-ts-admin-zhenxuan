@@ -27,8 +27,8 @@ request.interceptors.response.use(
         code: number
         message: string
       }
+      Promise.reject(response)
       ElMessage.error(response.message || '出现错误')
-      throw new Error(response.message || 'API response error')
     }
     // 成功响应
     return res.data

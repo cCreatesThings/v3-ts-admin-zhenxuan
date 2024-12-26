@@ -5,6 +5,7 @@ import { ElForm, ElMessage, type FormRules } from 'element-plus'
 import { postLoginRequestAPI } from '@/api/user'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
+import dayjs from 'dayjs'
 const userStore = useUserStore()
 const router = useRouter()
 const formData = ref({
@@ -26,6 +27,8 @@ const clickBtnLogin = () => {
         type: 'success',
         message: res.message
       })
+      // 记录当前时间 用户最近一次登录的时间
+      userStore.setLoginTime(dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss'))
       // 1s 之后跳转首页
       setTimeout(() => {
         router.replace('/')
