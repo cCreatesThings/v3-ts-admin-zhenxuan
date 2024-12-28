@@ -6,7 +6,6 @@ const userStore = useUserStore()
 const getUserInfo = async () => {
   await userStore.setUserInfo()
 }
-
 getUserInfo()
 </script>
 <template>

@@ -2,6 +2,7 @@
 import Logo from './components/Logo/index.vue'
 import MyMenu from './components/Menu/index.vue'
 import { useUserStore } from '@/stores/user'
+import RightMain from './components/RightMain/index.vue'
 const userStore = useUserStore()
 </script>
 
@@ -20,7 +21,7 @@ const userStore = useUserStore()
       <el-header><el-card>头部</el-card></el-header>
       <el-main>
         <el-card>
-          <RouterView />
+          <RightMain />
         </el-card>
       </el-main>
     </el-container>

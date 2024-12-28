@@ -44,7 +44,7 @@ export default [
       'vue/multi-word-component-names': [
         'warn',
         {
-          ignores: ['index']
+          ignores: ['index', 'Icon']
         }
       ],
       'prettier/prettier': [

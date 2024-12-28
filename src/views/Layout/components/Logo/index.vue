@@ -57,11 +57,18 @@ onBeforeUnmount(() => {
   }
 }
 .img:hover ~ .userinfo {
-  visibility: visible;
+  height: 180px;
+  transition: all 1s;
 }
 .userinfo {
-  padding-top: 50px;
-  visibility: hidden;
+  perspective: 500px;
+  box-shadow:
+    0 12px 32px 4px rgba(0, 0, 0, 0.04),
+    0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateZ(100px);
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,7 +77,7 @@ onBeforeUnmount(() => {
   top: 50px;
   left: 20px;
   width: 180px;
-  height: 200px;
+  height: 0;
   border-radius: 10px;
   background-color: #ffffff;
   .avator {
